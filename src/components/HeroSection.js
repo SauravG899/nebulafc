@@ -27,6 +27,7 @@ const HeroHeading = styled.h1`
   text-align: center;
   margin: 0 0 12px 0;
   letter-spacing: 1px;
+  font-family: 'Alfa Slab One', cursive;
   @media (max-width: 768px) {
     font-size: 2rem;
   }

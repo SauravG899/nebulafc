@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const HouseLeagueContainer = styled.div`
-  padding: 40px;
+  padding: 40px 80px;
   max-width: 1200px;
   margin: 0 auto;
 `;
@@ -11,6 +11,7 @@ const Title = styled.h1`
   font-size: 3rem;
   color: #5a2e8c; /* Purple color */
   margin-bottom: 20px;
+  font-family: 'Alfa Slab One', cursive;
 `;
 
 const Description = styled.p`
@@ -29,12 +30,13 @@ const SectionTitle = styled.h2`
 const LeagueList = styled.ul`
   list-style: none;
   padding: 0;
+  max-width: 800px;
 `;
 
 const LeagueItem = styled.li`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* Set to equally space columns */
-  gap: 5px; /* Reduced gap for tighter spacing */
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 5px;
   align-items: start;
   padding: 10px 0;
   border-bottom: 1px solid #eee;
@@ -47,23 +49,22 @@ const LeagueName = styled.span`
   font-weight: bold;
   font-size: 1.05rem;
   color: #333;
-  /* width: 30%; Removed as grid handles width */
 `;
 
 const LeagueDetail = styled.span`
   font-size: 1rem;
   color: #555;
-  /* width: 35%; Removed as grid handles width */
   text-align: left;
   word-break: break-word;
   white-space: normal;
 `;
 
 const PricingContainer = styled.div`
-  background: #a78bfa; /* Purple color */
+  background: #a78bfa;
   padding: 30px;
   border-radius: 10px;
   margin-top: 30px;
+  margin-left: 80px;
   height: 300px;
   display: flex;
   flex-direction: column;
@@ -108,10 +109,9 @@ const HouseLeague = () => {
   return (
     <HouseLeagueContainer>
       <Title>House League</Title>
-      <Description>&lt;Description&gt;</Description>
-
-      <div style={{ display: 'flex', justifyContent: 'space-between', gap: '40px' }}>
-        <div style={{ flex: 4 }}>
+      
+      <div style={{ display: 'flex', justifyContent: 'flex-start', gap: '40px' }}>
+        <div style={{ flex: 2 }}>
           <SectionTitle>Available Leagues</SectionTitle>
           {
             dummyLeagues.map((seasonData, index) => (
@@ -134,6 +134,10 @@ const HouseLeague = () => {
         <div style={{ flex: 1 }}>
           <PricingContainer>
             <PricingTitle>Pricing</PricingTitle>
+            <p>Annual Membership: $150</p>
+            <p>League Fee: $250 - $350 (per season)</p>
+            <p>Uniform Kit: $75 (one-time)</p>
+            <p>Sibling Discount: 10% off league fee</p>
           </PricingContainer>
         </div>
       </div>
