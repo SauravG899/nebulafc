@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-const CardContainer = styled.div`
+const CardContainer = styled(Link)`
   background: #f8fafc;
   border: 2px solid #d1d5db;
   border-radius: 12px;
@@ -15,6 +16,14 @@ const CardContainer = styled.div`
   min-height: 280px;
   box-sizing: border-box;
   margin: 0 auto;
+  text-decoration: none; /* Remove underline from Link */
+  transition: all 0.3s ease-in-out; /* Add transition for smooth effect */
+  cursor: pointer; /* Indicate it's clickable */
+
+  &:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15); /* Enhanced shadow on hover */
+    transform: translateY(-5px); /* Slight lift effect */
+  }
 
   @media (max-width: 900px) {
     max-width: 100%;
@@ -23,17 +32,12 @@ const CardContainer = styled.div`
   }
 `;
 
-const PlaceholderImage = styled.div`
+const CardImage = styled.img`
   width: 100%;
   height: 160px;
-  background: #e5e5e5;
+  object-fit: cover;
   border-radius: 8px;
   margin-bottom: 18px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  color: #bdbdbd;
 `;
 
 const CardTitle = styled.h3`
@@ -45,12 +49,10 @@ const CardTitle = styled.h3`
   letter-spacing: 1px;
 `;
 
-const FeatureCard = ({ title, icon }) => {
+const FeatureCard = ({ title, image, to }) => {
   return (
-    <CardContainer>
-      <PlaceholderImage>
-        {icon}
-      </PlaceholderImage>
+    <CardContainer to={to}>
+      <CardImage src={image} alt={title} />
       <CardTitle>{title}</CardTitle>
     </CardContainer>
   );

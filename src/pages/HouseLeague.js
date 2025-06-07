@@ -1,28 +1,43 @@
 import React from 'react';
 import styled from 'styled-components';
+import soccerBallSunset from '../assets/soccer_ball_sunset.jpeg';
 
 const HouseLeagueContainer = styled.div`
   padding: 40px 80px;
   max-width: 1200px;
   margin: 0 auto;
+  /* background: #e5e5e5; */ /* Removed to ensure consistent background */
+  border-radius: 10px;
+  overflow: hidden;
+`;
+
+const ImageWrapper = styled.div`
+  width: 100%;
+  height: 250px; /* Set a fixed height for the image */
+  background: url(${soccerBallSunset}) no-repeat center center / cover;
+  margin-bottom: 30px;
+  border-radius: 10px; /* Match container border radius */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 `;
 
 const Title = styled.h1`
   font-size: 3rem;
-  color: #5a2e8c; /* Purple color */
+  color: #5a2e8c;
   margin-bottom: 20px;
   font-family: 'Alfa Slab One', cursive;
+  text-align: center; /* Center the title */
 `;
 
 const Description = styled.p`
   font-size: 1.1rem;
   color: #666;
   margin-bottom: 40px;
+  text-align: center; /* Center the description */
 `;
 
 const SectionTitle = styled.h2`
   font-size: 1.8rem;
-  color: #5a2e8c; /* Purple color */
+  color: #5a2e8c;
   margin-top: 30px;
   margin-bottom: 15px;
 `;
@@ -64,13 +79,14 @@ const PricingContainer = styled.div`
   padding: 30px;
   border-radius: 10px;
   margin-top: 30px;
-  margin-left: 80px;
-  height: 300px;
+  /* margin-left: 80px; */
+  /* height: 300px; */ /* Removed fixed height to prevent text cutoff */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 `;
 
 const PricingTitle = styled.h2`
@@ -109,6 +125,11 @@ const HouseLeague = () => {
   return (
     <HouseLeagueContainer>
       <Title>House League</Title>
+      <Description>
+        Our House League offers a fun and engaging environment for players of all skill levels to learn and enjoy soccer.
+        Join a team, develop your skills, and make new friends!
+      </Description>
+      <ImageWrapper /> {/* Add the image here */}
       
       <div style={{ display: 'flex', justifyContent: 'flex-start', gap: '40px' }}>
         <div style={{ flex: 2 }}>

@@ -152,19 +152,27 @@ const Navbar = () => {
                 HOUSE LEAGUE
               </Link>
             </NavLink>
-            <NavLink>COMPETITIVE</NavLink>
-            <NavLink>SUMMER CAMPS</NavLink>
+            <NavLink>
+              <Link to="/competitive" style={{ textDecoration: 'none', color: 'inherit' }}>
+                COMPETITIVE
+              </Link>
+            </NavLink>
+            <NavLink>
+              <Link to="/summer-camps" style={{ textDecoration: 'none', color: 'inherit' }}>
+                SUMMER CAMPS
+              </Link>
+            </NavLink>
           </NavLinks>
         </LeftSection>
         <ButtonGroup>
-          <RegisterButton>REGISTER</RegisterButton>
-          <LoginButton>LOGIN</LoginButton>
+          <RegisterButton><Link to="/register" style={{ textDecoration: 'none', color: 'inherit' }}>REGISTER</Link></RegisterButton>
+          <LoginButton><Link to="/login" style={{ textDecoration: 'none', color: 'inherit' }}>LOGIN</Link></LoginButton>
         </ButtonGroup>
       </NavbarContainer>
       <SecondaryBar>
         <SecondaryBarContent>
-          <SecondaryLink>GET INVOLVED</SecondaryLink>
-          <SecondaryLink>CONTACT US</SecondaryLink>
+          <SecondaryLink><Link to="/get-involved" style={{ textDecoration: 'none', color: 'inherit' }}>GET INVOLVED</Link></SecondaryLink>
+          <SecondaryLink><Link to="/contact-us" style={{ textDecoration: 'none', color: 'inherit' }}>CONTACT US</Link></SecondaryLink>
         </SecondaryBarContent>
       </SecondaryBar>
     </div>

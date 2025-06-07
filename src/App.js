@@ -5,6 +5,13 @@ import HeroSection from './components/HeroSection';
 import FeatureCardsSection from './components/FeatureCardsSection';
 import GlobalStyles from './styles/GlobalStyles';
 import HouseLeague from './pages/HouseLeague';
+import Login from './pages/Login';
+import GetInvolved from './pages/GetInvolved';
+import ContactUs from './pages/ContactUs';
+import Competitive from './pages/Competitive';
+import SummerCamps from './pages/SummerCamps';
+import Register from './pages/Register';
+import Footer from './components/Footer';
 import './App.css';
 
 function App() {
@@ -22,7 +29,14 @@ function App() {
             </>
           } />
           <Route path="/house-league" element={<HouseLeague />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/get-involved" element={<GetInvolved />} />
+          <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/competitive" element={<Competitive />} />
+          <Route path="/summer-camps" element={<SummerCamps />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
+        <Footer />
       </div>
     </Router>
   );

@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+import soccerFieldNight from '../assets/soccer_field_night.jpeg';
 
 const HeroContainer = styled.section`
   width: 100%;
   min-height: 380px;
-  background: #e5e5e5;
+  background: url(${soccerFieldNight}) no-repeat center center / cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,6 +22,15 @@ const HeroContainer = styled.section`
   }
 `;
 
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+`;
+
 const HeroHeading = styled.h1`
   color: #a78bfa;
   font-size: 3rem;
@@ -28,31 +39,35 @@ const HeroHeading = styled.h1`
   margin: 0 0 12px 0;
   letter-spacing: 1px;
   font-family: 'Alfa Slab One', cursive;
+  z-index: 1;
+  position: relative;
   @media (max-width: 768px) {
     font-size: 2rem;
   }
 `;
 
 const HeroSubheading = styled.p`
-  color: #22223b;
+  color: #fff;
   font-size: 1.15rem;
   font-weight: 600;
   text-align: center;
   margin: 0 0 32px 0;
+  z-index: 1;
+  position: relative;
 
   a {
-    color: #22223b;
+    color: #4ade80;
     text-decoration: underline;
     font-weight: 700;
     cursor: pointer;
     transition: color 0.2s;
     &:hover {
-      color: #7c3aed;
+      color: #22c55e;
     }
   }
 `;
 
-const RegisterButton = styled.button`
+const RegisterButton = styled(Link)`
   background: #4ade80;
   color: #fff;
   font-weight: bold;
@@ -60,10 +75,13 @@ const RegisterButton = styled.button`
   border-radius: 8px;
   padding: 18px 48px;
   font-size: 1.3rem;
-  cursor: pointer;
   margin-top: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.07);
   transition: background 0.2s, transform 0.2s;
+  z-index: 1;
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
   &:hover {
     background: #22c55e;
     transform: translateY(-2px) scale(1.03);
@@ -73,12 +91,13 @@ const RegisterButton = styled.button`
 const HeroSection = () => {
   return (
     <HeroContainer>
+      <Overlay />
       <HeroHeading>Join Nebula FC</HeroHeading>
       <HeroSubheading>
         Why choose us?{' '}
         <a href="#learn-more">Learn more</a>
       </HeroSubheading>
-      <RegisterButton>REGISTER NOW!!</RegisterButton>
+      <RegisterButton to="/register">REGISTER NOW!!</RegisterButton>
     </HeroContainer>
   );
 };
