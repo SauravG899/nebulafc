@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { Link, useNavigate } from 'react-router-dom';
+import PlayerRegistrationForm from '../components/PlayerRegistrationForm';
 
 const RegisterPageContainer = styled.div`
   display: flex;
@@ -17,6 +18,28 @@ const RegisterTitle = styled.h1`
   font-size: 3rem;
   color: #a78bfa;
   margin-bottom: 10px;
+`;
+
+const ToggleContainer = styled.div`
+  display: flex;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+`;
+
+const ToggleButton = styled.button`
+  padding: 10px 20px;
+  border: none;
+  background-color: ${(props) => (props.$active ? '#a78bfa' : '#e0e0e0')};
+  color: ${(props) => (props.$active ? '#fff' : '#333')};
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: ${(props) => (props.$active ? '#8e6bf0' : '#d0d0d0')};
+  }
 `;
 
 const LoginPrompt = styled.p`
@@ -92,6 +115,7 @@ const RegisterButton = styled.button`
 `;
 
 const Register = () => {
+  const [showPlayerRegistration, setShowPlayerRegistration] = useState(false);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -112,55 +136,70 @@ const Register = () => {
   return (
     <RegisterPageContainer>
       <RegisterTitle>Register</RegisterTitle>
-      <LoginPrompt>
-        Already have an account? <Link to="/login">Login here</Link>
-      </LoginPrompt>
-      <RegisterFormContainer>
-        <RegisterFormTitle>REGISTER</RegisterFormTitle>
-        <form onSubmit={handleRegister} style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <InputGroup>
-            <Label htmlFor="username">Username:</Label>
-            <Input
-              type="text"
-              id="username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
-          </InputGroup>
-          <InputGroup>
-            <Label htmlFor="email">Email:</Label>
-            <Input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </InputGroup>
-          <InputGroup>
-            <Label htmlFor="password">Password:</Label>
-            <Input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </InputGroup>
-          <InputGroup>
-            <Label htmlFor="confirm-password">Confirm Password:</Label>
-            <Input
-              type="password"
-              id="confirm-password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              required
-            />
-          </InputGroup>
-          <RegisterButton type="submit">REGISTER</RegisterButton>
-        </form>
-      </RegisterFormContainer>
+      <ToggleContainer>
+        <ToggleButton $active={!showPlayerRegistration} onClick={() => setShowPlayerRegistration(false)}>
+          General Registration
+        </ToggleButton>
+        <ToggleButton $active={showPlayerRegistration} onClick={() => setShowPlayerRegistration(true)}>
+          Player Registration
+        </ToggleButton>
+      </ToggleContainer>
+
+      {!showPlayerRegistration ? (
+        <>
+          <LoginPrompt>
+            Already have an account? <Link to="/login">Login here</Link>
+          </LoginPrompt>
+          <RegisterFormContainer>
+            <RegisterFormTitle>REGISTER</RegisterFormTitle>
+            <form onSubmit={handleRegister} style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <InputGroup>
+                <Label htmlFor="username">Username:</Label>
+                <Input
+                  type="text"
+                  id="username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                  required
+                />
+              </InputGroup>
+              <InputGroup>
+                <Label htmlFor="email">Email:</Label>
+                <Input
+                  type="email"
+                  id="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+              </InputGroup>
+              <InputGroup>
+                <Label htmlFor="password">Password:</Label>
+                <Input
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </InputGroup>
+              <InputGroup>
+                <Label htmlFor="confirm-password">Confirm Password:</Label>
+                <Input
+                  type="password"
+                  id="confirm-password"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                  required
+                />
+              </InputGroup>
+              <RegisterButton type="submit">REGISTER</RegisterButton>
+            </form>
+          </RegisterFormContainer>
+        </>
+      ) : (
+        <PlayerRegistrationForm />
+      )}
     </RegisterPageContainer>
   );
 };

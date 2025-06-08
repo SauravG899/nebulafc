@@ -95,7 +95,7 @@ const HeroSection = () => {
       <HeroHeading>Join Nebula FC</HeroHeading>
       <HeroSubheading>
         Why choose us?{' '}
-        <a href="#learn-more">Learn more</a>
+        <Link to="/learn-more">Learn more</Link>
       </HeroSubheading>
       <RegisterButton to="/register">REGISTER NOW!!</RegisterButton>
     </HeroContainer>

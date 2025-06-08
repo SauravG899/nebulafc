@@ -12,6 +12,7 @@ import Competitive from './pages/Competitive';
 import SummerCamps from './pages/SummerCamps';
 import Register from './pages/Register';
 import Footer from './components/Footer';
+import LearnMore from './pages/LearnMore';
 import './App.css';
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           <Route path="/competitive" element={<Competitive />} />
           <Route path="/summer-camps" element={<SummerCamps />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/learn-more" element={<LearnMore />} />
         </Routes>
         <Footer />
       </div>
